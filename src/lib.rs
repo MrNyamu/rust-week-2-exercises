@@ -13,7 +13,7 @@ pub fn bytes_to_hex(bytes: &[u8]) -> String {
 }
 
 pub fn hex_to_bytes(hex: &str) -> Result<Vec<u8>, hex::FromHexError> {
-    decode(hex)
+    encode(hex)
 }
 
 pub fn swap_endian_u32(num: u32) -> [u8; 4] {
