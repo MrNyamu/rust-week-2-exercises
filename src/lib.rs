@@ -13,7 +13,7 @@ pub fn bytes_to_hex(bytes: &[u8]) -> String {
 }
 
 pub fn hex_to_bytes(hex: &str) -> Result<Vec<u8>, hex::FromHexError> {
-    encode(hex)
+    decode(hex)
 }
 
 pub fn swap_endian_u32(num: u32) -> [u8; 4] {
@@ -21,7 +21,9 @@ pub fn swap_endian_u32(num: u32) -> [u8; 4] {
 }
 
 pub fn parse_satoshis(input: &str) -> Result<u64, String> {
-    input.parse::<u64>().map_err(|_| "Invalid satoshi amount".to_string())
+    input
+        .parse::<u64>()
+        .map_err(|_| "Invalid satoshi amount".to_string())
 }
 
 pub enum ScriptType {
